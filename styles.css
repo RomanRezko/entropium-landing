@@ -1243,9 +1243,9 @@ section { padding: 100px 0; }
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* ---------- Stats Bar (цифровая полоса под hero) ---------- */
+/* ---------- Stats Bar (цифровая полоса под hero — минимализм) ---------- */
 .stats-bar {
-    background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+    background: #FFFFFF;
     padding: 56px 0;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -1258,85 +1258,48 @@ section { padding: 100px 0; }
     transform: translateX(-50%);
     width: 80%;
     max-width: 800px;
-    height: 240px;
-    background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.05), transparent 70%);
+    height: 200px;
+    background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.04), transparent 70%);
     pointer-events: none;
 }
 .stats-bar__grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 36px 28px;
     position: relative;
 }
 .stat-item {
-    background: #FFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px 20px 24px;
+    flex: 0 1 160px;
     text-align: center;
+    background: transparent;
+    border: 0;
+    padding: 0;
     position: relative;
-    overflow: hidden;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s, border-color 0.25s;
-}
-.stat-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.stat-item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
-}
-.stat-item:hover::before {
-    transform: scaleX(1);
-}
-.stat-item--featured {
-    background: linear-gradient(180deg, #FFFFFF 0%, #ECFDF5 100%);
-    border-color: rgba(16, 185, 129, 0.3);
-}
-.stat-item--featured::before {
-    transform: scaleX(1);
-    background: linear-gradient(90deg, var(--accent), #34D399);
-}
-.stat-item--featured .stat-item__num {
-    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .stat-item__num {
-    font-size: clamp(28px, 3.5vw, 44px);
+    font-size: clamp(30px, 3.2vw, 42px);
     font-weight: 800;
     line-height: 1;
     color: var(--text);
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 .stat-item__num span {
-    font-size: 0.5em;
-    font-weight: 700;
+    font-size: 0.45em;
+    font-weight: 600;
     color: var(--text-muted);
     margin-left: 4px;
-    -webkit-text-fill-color: var(--text-muted);
+    letter-spacing: 0;
 }
-.stat-item--featured .stat-item__num span {
-    color: var(--accent-dark);
-    -webkit-text-fill-color: var(--accent-dark);
-    opacity: 0.7;
+.stat-item--featured .stat-item__num {
+    color: var(--accent);
 }
 .stat-item__label {
     font-size: 12px;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.45;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-weight: 600;
@@ -2662,12 +2625,11 @@ section { padding: 100px 0; }
         grid-template-columns: 1fr 1fr;
     }
     .free-offer__inner { padding: 40px 32px; }
+    .stats-bar { padding: 44px 0; }
     .stats-bar__grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px 16px;
+        gap: 28px 24px;
     }
-    .stat-item:not(:last-child)::after { display: none; }
-    .stat-item:nth-child(3n)::after { display: none !important; }
+    .stat-item { flex: 0 1 140px; }
     .comparison-block {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2800,12 +2762,13 @@ section { padding: 100px 0; }
     .qualify-card { padding: 28px; }
     .pain-story__text { font-size: 16px; }
     .pain-story__cta-line { font-size: 18px; }
-    .stats-bar { padding: 32px 0; }
+    .stats-bar { padding: 36px 0; }
     .stats-bar__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px 16px;
+        gap: 24px 16px;
     }
-    .stat-item:nth-child(2n)::after { display: none !important; }
+    .stat-item { flex: 0 1 130px; }
+    .stat-item__num { font-size: 26px; }
+    .stat-item__label { font-size: 11px; letter-spacing: 0.04em; }
     .stat-callout { padding: 24px 20px; }
     .stat-callout__num { font-size: 32px; }
     .pull-quote { padding: 20px 24px; font-size: 18px; }
